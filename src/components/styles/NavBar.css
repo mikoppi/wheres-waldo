@@ -1,0 +1,52 @@
+:root {
+    --z-index-overlay: 1;
+}   
+
+* {
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.nav {
+    background-color:#171a21;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    gap:2rem;
+    padding: 0 8rem;
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-overlay);
+
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    height:100%;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+
+
+.nav > ul {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+    display: flex;
+    gap: 1rem;
+}
+
+
+.site-name {
+    font-size: 2.5rem;
+    margin-top: 15px;
+}
