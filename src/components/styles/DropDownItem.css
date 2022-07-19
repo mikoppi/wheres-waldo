@@ -1,0 +1,12 @@
+.character-dropdown-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0.5rem;
+    border-color: white;
+    border-width: 1px;
+    border-style:solid;
+    border-radius: 0.7rem;
+    background-color: rgba(9, 17, 63, 0.616);
+    font-size: 0.85rem
+}

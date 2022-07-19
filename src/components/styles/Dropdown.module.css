@@ -1,0 +1,43 @@
+.characters {
+    max-width: 100%;
+    min-width: 90%;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    overflow: auto;
+    transform: translate(-45%, -5%);
+    
+    
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100px;
+}
+
+.absolute {
+    position: absolute;
+  }
+
+
+.hidden {
+  display: none;
+}
+
+.box {
+
+  display: flex;
+	height: 80px;
+	width: 80px;
+	border: 2px solid #eefbff;
+	border-radius: 180px;
+  transform: translate(-45%, -5%);
+  z-index: 2;
+  
+}
+@media (max-width: 768px) {
+  .box {
+    height: 40px;
+    width: 40px;
+  }
+} ;

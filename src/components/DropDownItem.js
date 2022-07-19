@@ -1,8 +1,10 @@
 import React from 'react'
+import './styles/DropDownItem.css'
 
-const DropDownItem = ({image,title}) => {
+
+const DropDownItem = ({image,title,handleCharacterPick}) => {
   return (
-    <div className="character-dropdown-div">
+    <div className="character-dropdown-div" onClick={handleCharacterPick}>
         <img
           className="character-dropdown-img"
           src={image}
@@ -13,5 +15,8 @@ const DropDownItem = ({image,title}) => {
       </div>
   )
 }
+
+
+
 
 export default DropDownItem
