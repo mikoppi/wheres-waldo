@@ -47,12 +47,17 @@ const App = () => {
     formatClickLocation(coords);
   };
 
+  const handleCharacterPick = (e) => {
+    let charName = e.target.parentNode.id
+    console.log(charName)
+  }
+
 
   return (
     <div className='app'>
       <NavBar/>
       <MainImage getClickLocation={imageClick}/>
-      <DropDown characters={characters} show={showDropdown} clickLocation={clickLocation}/>
+      <DropDown  handleCharacterPick={handleCharacterPick} characters={characters} show={showDropdown} clickLocation={clickLocation}/>
       
     </div>
   )
