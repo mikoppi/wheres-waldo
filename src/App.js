@@ -4,6 +4,11 @@ import NavBar from './components/NavBar'
 import './components/styles/main.css';
 import PS1Data from './components/PS1Data';
 import DropDown from './components/DropDown';
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { app, db } from './firebase'
+
+
+
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -49,7 +54,15 @@ const App = () => {
 
   const handleCharacterPick = (e) => {
     let charName = e.target.parentNode.id
-    console.log(charName)
+    //console.log(charName)
+    checkLocation(charName)
+  }
+
+  const checkLocation = async (name) => {
+    const PS1DataCol = collection(db, 'PS1Data')
+    const coordSnapshot = await getDocs(PS1DataCol);
+    const coordList = coordSnapshot.docs.map(doc => doc.data())[0];
+    console.log(coordList)
   }
 
 
