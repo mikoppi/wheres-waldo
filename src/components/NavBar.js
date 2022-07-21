@@ -10,7 +10,7 @@ const NavBar = ({time}) => {
     function humanReadableTime (seconds) {
         let hoursFormat = (seconds/60)/60;
         let minutesFormat = (hoursFormat-Math.floor(hoursFormat))*60
-        let secondsFormat = Math.round((minutesFormat-Math.floor(minutesFormat))*60)
+        let secondsFormat = Math.floor((minutesFormat-Math.floor(minutesFormat))*60)
         let array = [hoursFormat, minutesFormat, secondsFormat];
         let zerosAdded = array.map((num) => {
           if (num < 10) {

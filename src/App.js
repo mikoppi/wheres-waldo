@@ -4,8 +4,9 @@ import NavBar from './components/NavBar'
 import './components/styles/main.css';
 import PS1Data from './components/PS1Data';
 import DropDown from './components/DropDown';
-import { collection, getDocs, setDoc, doc } from 'firebase/firestore/lite';
+import { collection, getDocs, setDoc, doc, addDoc, getFirestore, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from './firebase'
+
 
 
 
@@ -39,14 +40,18 @@ const App = () => {
   useEffect(() => {
     if(gameover) {
       console.log(time)
-      console.log(db.collection('Games'))
-      //addDataToFirebase(time)
+      if(time===0) return
+      addDataToFirebase(time)
       
     }
   },[gameover])
 
 
   const addDataToFirebase = async (seconds) => {
+    await addDoc(collection(getFirestore(), 'games'), {
+      time: seconds+1,
+      timestamp: serverTimestamp()
+    });
     
   }
 
