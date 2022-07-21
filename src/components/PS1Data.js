@@ -8,22 +8,16 @@ const PS1Data = {
       {
         name: "Spyro",
         found: false,
-        xCoord: 17,
-        yCoord: 49,
         picture: Spyro
       },
       {
         name: "Crash",
         found: false,
-        xCoord: 56,
-        yCoord: 57,
         picture: Crash
       },
       {
         name: "PaRappa",
         found: false,
-        xCoord: 38,
-        yCoord: 68,
         picture: Parappa
       },
     ]
