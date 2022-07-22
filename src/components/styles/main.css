@@ -1,7 +1,7 @@
 
 html {
 	min-height: 100vh;
-	overflow-x: hidden;
+	
 	background: #22222c;
 	color: #eefbff;
 	font-family: 'Play', sans-serif;
@@ -9,7 +9,7 @@ html {
 
 .app {
 	position: relative;
-	overflow-x: hidden;
+	
 }
 
 html::-webkit-scrollbar {

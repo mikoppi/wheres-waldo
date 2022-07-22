@@ -6,6 +6,7 @@ import PS1Data from './components/PS1Data';
 import DropDown from './components/DropDown';
 import { collection, getDocs, setDoc, doc, addDoc, getFirestore, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from './firebase'
+import Modal from './components/Modal';
 
 
 
@@ -19,6 +20,7 @@ const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameover, setGameover] = useState(false);
   const [time, setTime] = useState(0);
+  const [username, setUsername] = useState('')
 
   useEffect(() => {
     let PS1Characters = PS1Data.characters
@@ -124,6 +126,26 @@ const App = () => {
     setShowDropdown(false)
   }
 
+  const updateUsername = (e) => {
+    e.preventDefault()
+    let name = e.target.value;
+    setUsername(name)
+  }
+
+
+  const submitTime = async (e) => {
+    e.preventDefault()
+    await addDoc(collection(getFirestore(), 'leaderboard'), {
+      name: username,
+      time:time
+      
+    })
+    setGameover(false)
+    setGameStarted(false)
+    window.location.reload();
+    
+  }
+
 
   const isCoordWithinTwoDegrees = (coord1, coord2) => {
     return (
@@ -145,6 +167,7 @@ const App = () => {
       <NavBar time={time}/>
       <MainImage getClickLocation={imageClick}/>
       <DropDown  handleCharacterPick={handleCharacterPick} characters={characters} show={showDropdown} clickLocation={clickLocation}/>
+      {gameover ? <Modal time={time} submitTime={submitTime} updateUsername={updateUsername}/> : null }
       
     </div>
   )
