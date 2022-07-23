@@ -5,28 +5,68 @@
     align-items: center;
     
     width: 30%;
-    height: 25vh;
-    background-color: black;
+    height: auto;
+    background-color: rgba(31, 29, 59, 0.849);
     z-index: 3;
     border-radius: 30px;
     position: fixed;
-    top:50%;
+    top:30%;
     left: 35%;
-    padding: 10px
+    padding: 15px
     
     
+}
+
+.form-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .form-container > input{
     
-    width: 100%;
+    width: 80%;
+    margin-bottom: 5px;
+}
+
+.modal-input {
+    border-radius: 5px;
+    border-style: none;
+    height: 20px;
 }
 .form-container >label {
     margin-right: 10px;
+    margin-bottom: 5px;
     font-size: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
-.modal > button {
-    padding: 5px;
+#submit {
+    
+    
+    margin-bottom: 10px;
+    color: #ffffff;
+    font-size: 1rem;
+    background-image:
+    linear-gradient(
+      to right, 
+      #5eacc4, 
+      #304274 
+    );
+    border-style: none;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 3px;
+    border-radius: 5px;
+    
+    
+}
+
+
+.modal > h1 {
+    margin-bottom: 10px;
 }
 
 .modal > h2 {
@@ -38,6 +78,7 @@
     display: flex;
     justify-content: center;
     font-size: 1em;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 768px) {

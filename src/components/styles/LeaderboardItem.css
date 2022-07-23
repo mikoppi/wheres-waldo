@@ -1,0 +1,46 @@
+.leaderboard-title,
+.leaderboard-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    color: rgb(236, 214, 172);
+    
+}
+
+.leaderboard-title {
+    
+    margin-bottom: 5px;
+    color: white;
+}
+
+.leaderboard-item {
+    background-color: rgba(74, 102, 114, 0.479);
+    border: 0.3px solid rgb(120, 124, 163);
+    padding: 3px;
+    margin: 2px;
+    color: rgb(255, 255, 255);
+    border-style: solid;
+    border-radius: 5px;
+    
+}
+
+
+.leaderboard-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    
+}
+
+#name {
+    color: rgb(231, 204, 154)
+}
+
+#time {
+    color:aqua
+}

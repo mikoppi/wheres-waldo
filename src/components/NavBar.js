@@ -1,11 +1,13 @@
 import React from 'react'
-
 import './styles/NavBar.css'
+import Crash from '../images/crash.png'
+import Spyro from '../images/spyro.png'
+import Parappa from '../images/parappa.png'
 
 
 
 
-const NavBar = ({time}) => {
+const NavBar = ({time, image}) => {
 
     function humanReadableTime (seconds) {
         let hoursFormat = (seconds/60)/60;
@@ -33,17 +35,32 @@ const NavBar = ({time}) => {
         </li>
         <li>
           <p>
-              Character1
+            <img
+                className="character-dropdown-img"
+                src={Spyro}
+                alt='pic'
+                width='110px'
+            />
           </p>
         </li>
         <li>
           <p>
-              Character2
+            <img
+                className="character-dropdown-img"
+                src={Crash}
+                alt='pic'
+                width='80px'
+                />
           </p>
         </li>
         <li>
           <p>
-              Character3
+            <img
+                className="character-dropdown-img"
+                src={Parappa}
+                alt='pic'
+                width='80px'
+                />
           </p>
         </li>
       </ul>

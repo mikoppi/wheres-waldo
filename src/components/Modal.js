@@ -1,10 +1,13 @@
 import React from 'react';
 import './styles/Modal.css'
+import LeaderboardItem from './LeaderboardItem';
+import './styles/LeaderboardItem.css'
+import humanReadableTime from '../utils/humanReadableTime';
 
-const Modal = ({time,submitTime, updateUsername}) => {
+const Modal = ({time,submitTime, updateUsername, leaderboard}) => {
   return (
     <div className='modal'>
-        <h2>You finished in {time} seconds</h2>
+        <h2>Your time: {humanReadableTime(time)}</h2>
         <h3>Submit your time to global leaderboard!</h3>
         <form className='form-container' onSubmit={submitTime}>
             <label htmlFor="username" className="modal-username">
@@ -18,8 +21,17 @@ const Modal = ({time,submitTime, updateUsername}) => {
             onChange={updateUsername}
 
             />
-            <input type='submit' value='Submit'/>
+            <input type='submit' value='Submit' id='submit'/>
         </form>
+        <h1>Leaderboard:</h1>
+        <div className='leaderboard-title'>
+            <h2 id='name'>Name</h2>
+            <h2 id='time'>Time</h2>
+        </div>
+        <div className='leaderboard-container'>
+            {leaderboard.map((item) => 
+                <LeaderboardItem key={item.name} name={item.name} time={item.time}/>)}
+        </div>
     </div>
   )
 }

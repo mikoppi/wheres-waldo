@@ -20,7 +20,8 @@ const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [gameover, setGameover] = useState(false);
   const [time, setTime] = useState(0);
-  const [username, setUsername] = useState('')
+  const [username, setUsername] = useState('');
+  const [leaderboard, setLeaderboard] = useState([])
 
   useEffect(() => {
     let PS1Characters = PS1Data.characters
@@ -44,7 +45,10 @@ const App = () => {
       console.log(time)
       if(time===0) return
       addDataToFirebase(time)
-      
+      const loadLeaderboard = async() => {
+        setLeaderboard(await getLeaderboardData())
+      }
+      loadLeaderboard()
     }
   },[gameover])
 
@@ -146,6 +150,13 @@ const App = () => {
     
   }
 
+  const getLeaderboardData = async () => {
+    const LeaderboardCol = collection(db, 'leaderboard')
+    const leaderboardSnapshot = await getDocs(LeaderboardCol);
+    const leaderboardList = leaderboardSnapshot.docs.map(doc => doc.data());
+    return leaderboardList
+  }
+
 
   const isCoordWithinTwoDegrees = (coord1, coord2) => {
     return (
@@ -167,7 +178,7 @@ const App = () => {
       <NavBar time={time}/>
       <MainImage getClickLocation={imageClick}/>
       <DropDown  handleCharacterPick={handleCharacterPick} characters={characters} show={showDropdown} clickLocation={clickLocation}/>
-      {gameover ? <Modal time={time} submitTime={submitTime} updateUsername={updateUsername}/> : null }
+      {gameover ? <Modal leaderboard={leaderboard} time={time} submitTime={submitTime} updateUsername={updateUsername}/> : null }
       
     </div>
   )
