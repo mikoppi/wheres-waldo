@@ -146,7 +146,7 @@ const App = () => {
     })
     setGameover(false)
     setGameStarted(false)
-    window.location.reload();
+    resetState()
     
   }
 
@@ -155,6 +155,18 @@ const App = () => {
     const leaderboardSnapshot = await getDocs(LeaderboardCol);
     const leaderboardList = leaderboardSnapshot.docs.map(doc => doc.data());
     return leaderboardList
+  }
+
+  const resetState = () => {
+    setCharacters(PS1Data.characters);
+    setCoords(null);
+    setClickLocation({ left: "0%", top: "0%" });
+    setShowDropdown(false);
+    setGameStarted(false);
+    setGameover(false);
+    setTime(0);
+    setUsername('');
+    setLeaderboard([])
   }
 
 

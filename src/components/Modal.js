@@ -5,6 +5,11 @@ import './styles/LeaderboardItem.css'
 import humanReadableTime from '../utils/humanReadableTime';
 
 const Modal = ({time,submitTime, updateUsername, leaderboard}) => {
+
+    const sortObjects = (arr) => {
+        return arr.sort((a,b) => a.time - b.time )
+    }
+
   return (
     <div className='modal'>
         <h2>Your time: {humanReadableTime(time)}</h2>
@@ -29,7 +34,7 @@ const Modal = ({time,submitTime, updateUsername, leaderboard}) => {
             <h2 id='time'>Time</h2>
         </div>
         <div className='leaderboard-container'>
-            {leaderboard.map((item) => 
+            {sortObjects(leaderboard).map((item) => 
                 <LeaderboardItem key={item.name} name={item.name} time={item.time}/>)}
         </div>
     </div>

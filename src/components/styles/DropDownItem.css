@@ -8,5 +8,14 @@
     border-style:solid;
     border-radius: 0.7rem;
     background-color: rgba(9, 17, 63, 0.616);
-    font-size: 0.85rem
+    font-size: 0.9rem;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+    transition-delay: 0.1s;
+}
+
+.character-dropdown-div:hover {
+    background-color: black;
+    cursor: pointer;
 }
