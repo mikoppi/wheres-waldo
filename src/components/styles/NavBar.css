@@ -1,6 +1,16 @@
 :root {
     --z-index-overlay: 1;
-}   
+}
+
+@font-face {
+    font-family: 'playstation';
+    src: url('./zrnic___.ttf') format('truetype');
+  }
+
+@font-face {
+    font-family: 'digital';
+    src: url('./digital-7.ttf') format('truetype');
+  }
 
 * {
     box-sizing:border-box;
@@ -22,18 +32,6 @@
 
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-    height:100%;
-    display: flex;
-    align-items: center;
-    padding: 0.25rem;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-}
 
 
 
@@ -42,11 +40,32 @@ a {
     padding: 0;
     margin:0;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
+    margin-top: 5px;
+    
 }
 
 
 .site-name {
-    font-size: 2.5rem;
-    margin-top: 15px;
+    font-size: 3.5rem;
+    margin-top: 30px;
+    color: rgb(173, 215, 231);
+    font-family: 'playstation';
+}
+
+.site-time {
+    font-size: 3.2rem;
+    margin-top: 30px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(185, 184, 184);
+    height: 55px;
+    padding: 5px;
+    padding-top: 8px;
+    border-radius: 10px;
+    font-family: 'digital';
+    min-width: 170px;
+}
+
+.character-found {
+    filter: brightness(10%);
 }

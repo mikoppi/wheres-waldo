@@ -7,7 +7,7 @@ import Parappa from '../images/parappa.png'
 
 
 
-const NavBar = ({time, image}) => {
+const NavBar = ({time, characters}) => {
 
     function humanReadableTime (seconds) {
         let hoursFormat = (seconds/60)/60;
@@ -27,16 +27,12 @@ const NavBar = ({time, image}) => {
   return (
     <nav className='nav'>
       <p className='site-name'>FindTheseCharacters</p>
+      <p className='site-time'>{humanReadableTime(time)}</p>
       <ul>
         <li>
           <p>
-              {humanReadableTime(time)}
-          </p>
-        </li>
-        <li>
-          <p>
             <img
-                className="character-dropdown-img"
+                className={`character-${characters[0].found ? 'found' : ''}`}
                 src={Spyro}
                 alt='pic'
                 width='110px'
@@ -46,7 +42,7 @@ const NavBar = ({time, image}) => {
         <li>
           <p>
             <img
-                className="character-dropdown-img"
+                className={`character-${characters[1].found ? 'found' : ''}`}
                 src={Crash}
                 alt='pic'
                 width='80px'
@@ -56,7 +52,7 @@ const NavBar = ({time, image}) => {
         <li>
           <p>
             <img
-                className="character-dropdown-img"
+                className={`character-${characters[2].found ? 'found' : ''}`}
                 src={Parappa}
                 alt='pic'
                 width='80px'

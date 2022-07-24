@@ -175,7 +175,7 @@ const App = () => {
 
   return (
     <div className='app'>
-      <NavBar time={time}/>
+      <NavBar time={time} characters={characters}/>
       <MainImage getClickLocation={imageClick}/>
       <DropDown  handleCharacterPick={handleCharacterPick} characters={characters} show={showDropdown} clickLocation={clickLocation}/>
       {gameover ? <Modal leaderboard={leaderboard} time={time} submitTime={submitTime} updateUsername={updateUsername}/> : null }
