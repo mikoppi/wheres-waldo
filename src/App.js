@@ -7,6 +7,8 @@ import DropDown from './components/DropDown';
 import { collection, getDocs, setDoc, doc, addDoc, getFirestore, serverTimestamp } from 'firebase/firestore/lite';
 import { db } from './firebase'
 import Modal from './components/Modal';
+import Leaderboard from './components/Leaderboard';
+import Footer from './components/Footer';
 
 
 
@@ -22,6 +24,7 @@ const App = () => {
   const [time, setTime] = useState(0);
   const [username, setUsername] = useState('');
   const [leaderboard, setLeaderboard] = useState([])
+  const [leaderboardOpen, setLeaderboardOpen] = useState(false)
 
   useEffect(() => {
     let PS1Characters = PS1Data.characters
@@ -51,6 +54,15 @@ const App = () => {
       loadLeaderboard()
     }
   },[gameover])
+
+  useEffect(() => {
+    if(leaderboardOpen) {
+      const loadLeaderboard = async() => {
+        setLeaderboard(await getLeaderboardData())
+      }
+      loadLeaderboard()
+    }
+  },[leaderboardOpen])
 
 
   const addDataToFirebase = async (seconds) => {
@@ -180,6 +192,11 @@ const App = () => {
     );
   };
 
+
+  const openLeaderBoard = () => {
+    setLeaderboardOpen((prevState) => !prevState)
+  }
+
   //console.log(characters)
   //console.log(gameover)
 
@@ -187,11 +204,12 @@ const App = () => {
 
   return (
     <div className='app'>
-      <NavBar time={time} characters={characters}/>
+      <NavBar time={time} characters={characters} openLeaderboard={openLeaderBoard} leaderboardOpen={leaderboardOpen}/>
       <MainImage getClickLocation={imageClick}/>
       <DropDown  handleCharacterPick={handleCharacterPick} characters={characters} show={showDropdown} clickLocation={clickLocation}/>
       {gameover ? <Modal leaderboard={leaderboard} time={time} submitTime={submitTime} updateUsername={updateUsername}/> : null }
-      
+      <>{leaderboardOpen ? <Leaderboard  leaderboard={leaderboard}/> : null }</>
+      <Footer/>
     </div>
   )
 }

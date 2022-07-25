@@ -7,7 +7,7 @@ import Parappa from '../images/parappa.png'
 
 
 
-const NavBar = ({time, characters}) => {
+const NavBar = ({time, characters, leaderboardOpen, openLeaderboard}) => {
     
 
     function humanReadableTime (seconds) {
@@ -28,7 +28,10 @@ const NavBar = ({time, characters}) => {
   return (
     <nav className='nav'>
       <p className='site-name'>FindTheseCharacters</p>
-      <p className='site-time'>{humanReadableTime(time)}</p>
+      <div className='leaderboard-button'>
+        <p className='site-time'>{humanReadableTime(time)}</p>
+        <button className={`leaderboard-${leaderboardOpen ? 'open' : 'closed'}`} onClick={openLeaderboard}>{leaderboardOpen ? 'Close leaderboard' : 'Show leaderboard'}</button>
+      </div>
       <ul>
         <li>
           <p>
